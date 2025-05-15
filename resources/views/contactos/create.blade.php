@@ -42,9 +42,14 @@
                 <input type="file" name="foto" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary w-100 fw-bold">
+            <button type="submit" class="btn btn-primary w-100 fw-bold mb-2">
                 <i class="fas fa-save"></i> Guardar Contacto
             </button>
+
+            <a href="{{ route('contactos.index') }}" class="btn btn-secondary w-100 fw-bold">
+            Cancelar
+            </a>
+
         </form>
     </div>
 </div>

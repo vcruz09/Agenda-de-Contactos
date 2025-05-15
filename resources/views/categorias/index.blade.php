@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('contactos.index') }}" class="btn btn-secondary btn-custom">Volver a Contactos</a>
     <h1 class="text-center text-primary mb-4 fw-bold">🏷️ Categorías</h1>
 
     <div class="d-flex justify-content-between mb-4">

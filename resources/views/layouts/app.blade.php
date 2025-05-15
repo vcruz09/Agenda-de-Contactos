@@ -46,29 +46,37 @@
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('contactos.index') }}">
-                📒 Agenda de Contactos
-            </a>
+    <div class="container">
+        <a class="navbar-brand" href="{{ route('contactos.index') }}">
+            📒 Agenda de Contactos
+        </a>
 
-            <!-- Botón de Notificaciones -->
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a id="notificacionesDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        🔔 Notificaciones 
-                        <span id="contador-notificaciones" class="badge bg-danger" style="display: none;">0</span>
+        <!-- Botones alineados a la derecha -->
+        <ul class="navbar-nav ms-auto align-items-center">
+            <!-- Notificaciones -->
+            <li class="nav-item dropdown me-2">
+                <a id="notificacionesDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    🔔 Notificaciones 
+                    <span id="contador-notificaciones" class="badge bg-danger" style="display: none;">0</span>
+                </a>
 
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end p-2" aria-labelledby="notificacionesDropdown">
-                        <div id="notificaciones-lista">
-                            <a class="dropdown-item text-muted">Cargando notificaciones...</a>
-                        </div>
+                <div class="dropdown-menu dropdown-menu-end p-2" aria-labelledby="notificacionesDropdown">
+                    <div id="notificaciones-lista">
+                        <a class="dropdown-item text-muted">Cargando notificaciones...</a>
                     </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                </div>
+            </li>
+
+            <!-- Botón Cerrar -->
+            <li class="nav-item">
+                <a href="{{ url('/') }}" class="btn btn-outline-light">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
     <div class="container mt-4">
         @yield('content')

@@ -22,10 +22,11 @@
             <div class="col-md-4">
                 <div class="card card-contacto mb-4 shadow-sm">
                     <div class="card-body text-center">
-                        <img src="{{ asset($contacto->foto ? 'storage/'.$contacto->foto : 'images/default.png') }}" 
-                            class="rounded-circle mb-3 border border-3 border-primary"
-                            width="90" height="90" alt="Foto de {{ $contacto->nombre }}">
-
+                        <a href="{{ route('contactos.show', $contacto->id) }}">
+                            <img src="{{ asset($contacto->foto ? 'storage/'.$contacto->foto : 'images/default.png') }}" 
+                                class="rounded-circle mb-3 border border-3 border-primary"
+                                width="90" height="90" alt="Foto de {{ $contacto->nombre }}">
+                        </a>
                         <h5 class="card-title fw-bold">{{ $contacto->nombre }}</h5>
                         <p class="text-muted">{{ $contacto->correo_electronico }}</p>
                         <p class="text-dark fw-semibold">{{ $contacto->telefono }}</p>

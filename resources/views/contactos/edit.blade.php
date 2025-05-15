@@ -47,6 +47,11 @@
             <button type="submit" class="btn btn-warning w-100 fw-bold">
                 <i class="fas fa-edit"></i> Actualizar Contacto
             </button>
+
+            <a href="{{ route('contactos.index') }}" class="btn btn-secondary w-100 fw-bold mt-2">
+            Cancelar
+            </a>
+
         </form>
     </div>
 </div>
