@@ -1,20 +1,14 @@
 services:
   - type: web
     name: agenda-contactos
-    env: php
+    env: docker
     repo: https://github.com/vcruz09/Agenda-de-contactos
     branch: main
-    buildCommand: |
-      composer install --no-dev
-      php artisan key:generate
-      php artisan migrate --force
-      php artisan storage:link
-    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
     envVars:
       - key: APP_ENV
         value: production
       - key: APP_KEY
-        value:
+        generateValue: true
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
@@ -30,8 +24,6 @@ services:
       - key: APP_URL
         value: https://tu-app-en-render.onrender.com
       - key: SESSION_DRIVER
-        value: cookie
-      - key: CACHE_DRIVER
         value: file
       - key: QUEUE_CONNECTION
         value: sync
