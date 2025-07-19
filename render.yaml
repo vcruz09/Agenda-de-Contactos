@@ -1,31 +1,54 @@
 services:
   - type: web
     name: agenda-contactos
-    env: docker
+    env: php
+    region: oregon
+    plan: free
     repo: https://github.com/vcruz09/Agenda-de-contactos
     branch: main
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:clear
+      php artisan key:generate
+      php artisan migrate --force
+      php artisan storage:link
+    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
     envVars:
       - key: APP_ENV
         value: production
+
       - key: APP_KEY
         generateValue: true
-      - key: DB_CONNECTION
-        value: pgsql
-      - key: DB_HOST
-        value: dpg-d0ilcbbe5dus739nrh40-a.oregon-postgres.render.com
-      - key: DB_PORT
-        value: 5432
-      - key: DB_DATABASE
-        value: agendacontacto
-      - key: DB_USERNAME
-        value: vane
-      - key: DB_PASSWORD
-        value: VrNMZnrkPtGgx4vYx4j2P4I8B2Dad6to
+
       - key: APP_URL
-        value: https://tu-app-en-render.onrender.com
+        value: http://localhost
+
+      - key: DB_CONNECTION
+        value: mysql
+
+      - key: DB_HOST
+        value: YOUR_MYSQL_HOST
+
+      - key: DB_PORT
+        value: 3306
+
+      - key: DB_DATABASE
+        value: YOUR_DATABASE_NAME
+
+      - key: DB_USERNAME
+        value: YOUR_DB_USER
+
+      - key: DB_PASSWORD
+        value: YOUR_DB_PASSWORD
+
       - key: SESSION_DRIVER
+        value: cookie
+
+      - key: CACHE_DRIVER
         value: file
+
       - key: QUEUE_CONNECTION
         value: sync
+
       - key: FILESYSTEM_DISK
         value: local
